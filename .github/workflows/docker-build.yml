@@ -23,3 +23,34 @@ jobs:
       - uses: actions/checkout@master
       - name: Docker Build
         run: docker build -t action-stringslint .
+
+      - name: Exit Status on Errors
+        run: |
+          STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
+          [[ $STATUS == "2" ]]
+        working-directory: ./test/ErrorProject
+        shell: bash
+
+      - name: Exit Status on Warning
+        run: |
+          STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
+          [[ $STATUS == "0" ]]
+        working-directory: ./test/WarningProject
+        shell: bash
+
+      - name: Output on Clean
+        run: |
+          STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
+          [[ $STATUS == "0" ]]
+        working-directory: ./test/CleanProject
+        shell: bash
+
+      - name: Output on Warning
+        run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint|sort) expected.txt
+        working-directory: ./test/WarningProject
+        shell: bash
+
+      - name: Output on Error
+        run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint|sort) expected.txt
+        working-directory: ./test/ErrorProject
+        shell: bash
