@@ -1,0 +1,7 @@
+scanning CleanProject/AppDelegate.swift
+scanning CleanProject/Base.lproj/LaunchScreen.storyboard
+scanning CleanProject/Base.lproj/Main.storyboard
+scanning CleanProject/SceneDelegate.swift
+scanning CleanProject/ViewController.swift
+scanning CleanProjectTests/CleanProjectTests.swift
+scanning CleanProjectUITests/CleanProjectUITests.swift

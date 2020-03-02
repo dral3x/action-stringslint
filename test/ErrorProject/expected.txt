@@ -1,0 +1,8 @@
+ErrorProject/ViewController.swift:18: error: Missing Violation: Localized string "not existing key" is missing (missing)
+scanning ErrorProject/AppDelegate.swift
+scanning ErrorProject/Base.lproj/LaunchScreen.storyboard
+scanning ErrorProject/Base.lproj/Main.storyboard
+scanning ErrorProject/SceneDelegate.swift
+scanning ErrorProject/ViewController.swift
+scanning ErrorProjectTests/ErrorProjectTests.swift
+scanning ErrorProjectUITests/ErrorProjectUITests.swift
