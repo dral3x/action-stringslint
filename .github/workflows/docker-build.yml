@@ -34,7 +34,7 @@ jobs:
       - name: Exit Status on Warning
         run: |
           STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
-          [[ $STATUS == "0" ]]
+          [[ $STATUS == "1" ]]
         working-directory: ./test/WarningProject
         shell: bash
 
