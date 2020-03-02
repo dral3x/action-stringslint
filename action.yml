@@ -1,0 +1,9 @@
+name: 'GitHub Action for StringsLint'
+description: 'Ensure your localized strings are complete and never unused'
+author: 'Alessandro Calzavara <alessandro.calzavara@gmail.com>'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'shield'
+  color: 'orange'
