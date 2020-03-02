@@ -1,4 +1,4 @@
-WarningProject/ViewController.swift:18: warning: Missing Violation: Localized string "not existing key" is missing (missing)
+::warning file=WarningProject/ViewController.swift,line=18::Missing Violation: Localized string "not existing key" is missing (missing)
 scanning WarningProject/AppDelegate.swift
 scanning WarningProject/Base.lproj/LaunchScreen.storyboard
 scanning WarningProject/Base.lproj/Main.storyboard
