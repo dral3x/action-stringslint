@@ -8,7 +8,7 @@ function stripPWD() {
 }
 
 function convertToGitHubActionsLoggingCommands() {
-    sed -E 's/^(.*):([0-9]+):([0-9]+): (warning|error|[^:]+): (.*)/::\4 file=\1,line=\2,col=\3::\5/'
+    sed -E 's/^(.*):([0-9]+): (warning|error|[^:]+): (.*)/::\3 file=\1,line=\2::\4/'
 }
 
-set -o pipefail && stringslint "$@" | stripPWD | convertToGitHubActionsLoggingCommands
+set -o pipefail && stringslint "$@" -- | stripPWD | convertToGitHubActionsLoggingCommands
