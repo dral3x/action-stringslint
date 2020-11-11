@@ -22,7 +22,7 @@ jobs:
   StringsLint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: GitHub Action for StringsLint
         uses: dral3x/action-stringslint@0.0.4
