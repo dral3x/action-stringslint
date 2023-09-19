@@ -25,10 +25,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: GitHub Action for StringsLint
-        uses: dral3x/action-stringslint@1.1.1
+        uses: dral3x/action-stringslint@1.1.3
 
       - name: GitHub Action for StringsLint with --config
-        uses: dral3x/action-stringslint@1.1.1
+        uses: dral3x/action-stringslint@1.1.3
         with:
           args: --config ../shared/stringslint.yml
 ```
