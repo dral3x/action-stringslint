@@ -12,11 +12,11 @@ name: StringsLint
 on:
   pull_request:
     paths:
-      - '.github/workflows/stringslint.yml'
-      - '.stringslint.yml'
-      - '**/*.swift'
-      - '**/*.strings'
-      - '**/*.stringsdict'
+      - ".github/workflows/stringslint.yml"
+      - ".stringslint.yml"
+      - "**/*.swift"
+      - "**/*.strings"
+      - "**/*.stringsdict"
 
 jobs:
   StringsLint:
@@ -25,10 +25,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: GitHub Action for StringsLint
-        uses: dral3x/action-stringslint@1.1.6
+        uses: dral3x/action-stringslint@1.1.7
 
       - name: GitHub Action for StringsLint with --config
-        uses: dral3x/action-stringslint@1.1.6
+        uses: dral3x/action-stringslint@1.1.7
         with:
           args: --config ../shared/stringslint.yml
 ```
