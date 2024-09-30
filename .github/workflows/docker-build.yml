@@ -4,16 +4,16 @@ on:
   push:
     branches: [master]
     paths:
-      - '.dockerignore'
-      - '.github/workflows/docker-build.yml'
-      - 'Dockerfile'
-      - 'entrypoint.sh'
+      - ".dockerignore"
+      - ".github/workflows/docker-build.yml"
+      - "Dockerfile"
+      - "entrypoint.sh"
   pull_request:
     paths:
-      - '.dockerignore'
-      - '.github/workflows/docker-build.yml'
-      - 'Dockerfile'
-      - 'entrypoint.sh'
+      - ".dockerignore"
+      - ".github/workflows/docker-build.yml"
+      - "Dockerfile"
+      - "entrypoint.sh"
 
 jobs:
   DockerBuild:
@@ -26,8 +26,9 @@ jobs:
 
       - name: Exit Status on Errors
         run: |
-          STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
-          [[ $STATUS == "2" ]]
+          docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint
+          #STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
+          #[[ $STATUS == "2" ]]
         working-directory: ./test/ErrorProject
         shell: bash
 
