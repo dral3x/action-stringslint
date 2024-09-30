@@ -1,5 +1,5 @@
-FROM dral3x/stringslint:swift-5.9.6
-LABEL version="1.1.7"
+FROM dral3x/stringslint:0.1.8_swift-5.10.1
+LABEL version="1.1.8"
 LABEL repository="https://github.com/dral3x/action-stringslint"
 LABEL homepage="https://github.com/dral3x/action-stringslint"
 LABEL maintainer="Alessandro Calzavara <alessandro.calzavara@gmail.com>"
