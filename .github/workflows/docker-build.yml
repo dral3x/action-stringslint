@@ -26,9 +26,8 @@ jobs:
 
       - name: Exit Status on Errors
         run: |
-          docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint
-          #STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
-          #[[ $STATUS == "2" ]]
+          STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
+          [[ $STATUS != "0" ]]
         working-directory: ./test/ErrorProject
         shell: bash
 
