@@ -31,6 +31,11 @@ jobs:
         uses: dral3x/action-stringslint@1.1.9
         with:
           args: --config ../shared/stringslint.yml
+
+      - name: GitHub Action for StringsLint (Different working directory)
+        uses: dral3x/action-stringslint@1.1.9
+        env:
+          WORKING_DIRECTORY: Source
 ```
 
 ## Author

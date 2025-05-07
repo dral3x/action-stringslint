@@ -54,3 +54,8 @@ jobs:
         run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint | sort -u) expected.txt
         working-directory: ./test/ErrorProject
         shell: bash
+
+      - name: Output on Warnings with WORKING_DIRECTORY environment variable
+        run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm --env WORKING_DIRECTORY=WarningProject action-stringslint|sort) <(cat WarningProject/expected.txt | sed -E 's/^(.*)file=(.*),(.*)/\1file=WarningProject\/\2,\3/')
+        working-directory: ./test
+        shell: bash
