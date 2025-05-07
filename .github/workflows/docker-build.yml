@@ -56,6 +56,6 @@ jobs:
         shell: bash
 
       - name: Output on Warnings with WORKING_DIRECTORY environment variable
-        run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm --env WORKING_DIRECTORY=Warnings action-stringslint|sort) <(cat Warnings/expected.txt | sed -E 's/^(.*)file=(.*),(.*)/\1file=Warnings\/\2,\3/')
+        run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm --env WORKING_DIRECTORY=Warnings action-stringslint|sort) <(cat Warnings/expected.txt | sed -E 's/^(.*)file=(.*),(.*)/\1file=Warnings\/\2,\3/' | sed -E 's/^(scanning )/\1Warnings\//')
         working-directory: ./test
         shell: bash
