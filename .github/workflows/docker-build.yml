@@ -35,7 +35,7 @@ jobs:
         run: |
           STATUS=$(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint &>/dev/null; echo $?)
           [[ $STATUS == "0" ]]
-        working-directory: ./test/WarningProject
+        working-directory: ./test/Warnings
         shell: bash
 
       - name: Output on Clean
@@ -47,7 +47,7 @@ jobs:
 
       - name: Output on Warning
         run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm action-stringslint | sort -u) expected.txt
-        working-directory: ./test/WarningProject
+        working-directory: ./test/Warnings
         shell: bash
 
       - name: Output on Error
@@ -56,6 +56,6 @@ jobs:
         shell: bash
 
       - name: Output on Warnings with WORKING_DIRECTORY environment variable
-        run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm --env WORKING_DIRECTORY=WarningProject action-stringslint|sort) <(cat WarningProject/expected.txt | sed -E 's/^(.*)file=(.*),(.*)/\1file=WarningProject\/\2,\3/')
+        run: diff <(docker run -v $(pwd):$(pwd) -w $(pwd) --rm --env WORKING_DIRECTORY=Warnings action-stringslint|sort) <(cat Warnings/expected.txt | sed -E 's/^(.*)file=(.*),(.*)/\1file=Warnings\/\2,\3/')
         working-directory: ./test
         shell: bash
