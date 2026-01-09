@@ -25,15 +25,15 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: GitHub Action for StringsLint
-        uses: dral3x/action-stringslint@1.1.9
+        uses: dral3x/action-stringslint@1.1.11
 
       - name: GitHub Action for StringsLint with --config
-        uses: dral3x/action-stringslint@1.1.9
+        uses: dral3x/action-stringslint@1.1.11
         with:
           args: --config ../shared/stringslint.yml
 
       - name: GitHub Action for StringsLint (Different working directory)
-        uses: dral3x/action-stringslint@1.1.9
+        uses: dral3x/action-stringslint@1.1.11
         env:
           WORKING_DIRECTORY: Source
 ```
